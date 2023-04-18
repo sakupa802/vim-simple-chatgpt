@@ -1,6 +1,6 @@
 function! chat_gpt#ChatGPT(message) abort
   if executable('curl')
-    let url = "https://api.openai.com/v1/chat/completions
+    let url = "https://api.openai.com/v1/chat/completions"
     let json = '{"model": "gpt-3.5-turbo", "messages": [{"role": "user", "content": "'. a:message . '"}]}'
     let cmd = 'curl -s -X POST -H "Authorization: Bearer ' . g:openai_api_key . '" "Content-Type: application/json" -d "' . a:json . '" ' . a:url
     let result = json_decode(system(cmd))
